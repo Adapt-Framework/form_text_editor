@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adapt_framework>
+  <bundle>
+    <name>form_text_editor</name>
+    <label>Form Text Editor</label>
+    <version>1.0.0</version>
+    <type>extension</type>
+    <description>Allows the use of TinyMCE in forms</description>
+    <copyright>2015 Adapt Framework</copyright>
+    <depends_on>
+        <bundle>forms</bundle>
+        <bundle>tinymce</bundle>
+    </depends_on>
+  </bundle>
+</adapt_framework>
