@@ -2,14 +2,35 @@
 <adapt_framework>
   <bundle>
     <name>form_text_editor</name>
-    <label>Form Text Editor</label>
+    <label>Adapt Form Text Editor</label>
     <version>1.0.0</version>
     <type>extension</type>
+    <namespace>\adapt\forms\text_editor</namespace>
     <description>Allows the use of TinyMCE in forms</description>
     <copyright>2015 Adapt Framework</copyright>
     <depends_on>
-        <bundle>forms</bundle>
-        <bundle>tinymce</bundle>
+        <bundle>
+          <name>forms</name>
+          <version>1.0</version>
+        </bundle>
+        <bundle>
+          <name>tinymce</name>
+          <version>4.2</version>
+        </bundle>
+        <bundle>
+          <name>adapt</name>
+          <version>1.0</version>
+        </bundle>
     </depends_on>
+    <schema>
+      <add>
+        <table name="form_field_type">
+          <record>
+            <name>Text editor</name>
+            <view>\adapt\forms\text_editor\view_field_text_editor</view>
+          </record>
+        </table>
+      </add>
+    </schema>
   </bundle>
 </adapt_framework>

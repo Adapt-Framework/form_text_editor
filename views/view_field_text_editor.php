@@ -1,44 +1,44 @@
 <?php
 
-namespace extensions\form_text_editor{
+namespace adapt\forms\text_editor{
     
     /*
      * Prevent direct access
      */
     defined('ADAPT_STARTED') or die;
     
-    class view_field_text_editor extends \extensions\forms\view_field{
+    class view_field_text_editor extends \adapt\forms\view_form_page_section_group_field{
         
-        public function __construct($form_data, $user_data){
-            parent::__construct($form_data, $user_data);
+        public function __construct($form_data, $data_type, $user_data){
+            parent::__construct($form_data, $data_type, $user_data);
             $this->add_class('form-group field input text-editor');
             
             /* Create the control */
-            $value = $form_data['form_page_section_group_field']['value'] ? $form_data['form_page_section_group_field']['value'] : $form_data['form_page_section_group_field']['default_value'];
-            $control = new \extensions\bootstrap_views\view_textarea($form_data['form_page_section_group_field']['name'], $value, 3);
+            $value = $this->user_value ? $this->user_value : $form_data['default_value'];
+            $control = new \bootstrap\views\view_textarea($form_data['name'], $value, 3);
             $control->add_class('tinymce');
             $control->set_id();
             
             /* Add the label */
-            if (isset($form_data['form_page_section_group_field']['label']) && trim($form_data['form_page_section_group_field']['label']) != ''){
-                $this->add(new html_label($form_data['form_page_section_group_field']['label'], array('for' => $control->attr('id'))));
+            if (isset($form_data['label']) && trim($form_data['label']) != ''){
+                $this->add(new html_label($form_data['label'], array('for' => $control->attr('id'))));
             }
             
             /* Add the control */
             $this->add($control);
             
             /* Add the decription */
-            if (isset($form_data['form_page_section_group_field']['description']) && trim($form_data['form_page_section_group_field']['description']) != ''){
-                $this->add(new html_p($form_data['form_page_section_group_field']['description'], array('class' => 'help-block')));
+            if (isset($form_data['description']) && trim($form_data['description']) != ''){
+                $this->add(new html_p($form_data['description'], array('class' => 'help-block')));
             }
             
             /* Do we have a placeholder label? */
-            if (isset($form_data['form_page_section_group_field']['placeholder_label']) && trim($form_data['form_page_section_group_field']['placeholder_label']) != ''){
-                $control->attr('placeholder', $form_data['form_page_section_group_field']['placeholder_label']);
+            if (isset($form_data['placeholder_label']) && trim($form_data['placeholder_label']) != ''){
+                $control->attr('placeholder', $form_data['placeholder_label']);
             }
             
             /* Is the field mandatory? */
-            if (isset($form_data['form_page_section_group_field']['mandatory']) && strtolower($form_data['form_page_section_group_field']['mandatory']) == "yes"){
+            if (isset($form_data['mandatory']) && strtolower($form_data['mandatory']) == "yes"){
                 /* Mark the label */
                 $this->find('label')->append(
                     new html_sup(
@@ -50,9 +50,9 @@ namespace extensions\form_text_editor{
                 );
                 
                 /* Is it a mandatory group? */
-                if (isset($form_data['form_page_section_group_field']['mandatory_group']) && trim($form_data['form_page_section_group_field']['mandatory_group']) != ""){
+                if (isset($form_data['mandatory_group']) && trim($form_data['mandatory_group']) != ""){
                     $control->attr('data-mandatory', 'group');
-                    $control->attr('data-mandatory-group', $form_data['form_page_section_group_field']['mandatory_group']);
+                    $control->attr('data-mandatory-group', $form_data['mandatory_group']);
                 }else{
                     $control->attr('data-mandatory', 'Yes');
                 }

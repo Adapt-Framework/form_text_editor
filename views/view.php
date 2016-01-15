@@ -1,11 +1,11 @@
 <?php
 
-namespace extensions\form_text_area{
+namespace adapt\forms\text_area{
     
     /* Prevent direct access */
     defined('ADAPT_STARTED') or die;
     
-    class view extends \frameworks\adapt\view{
+    class view extends \adapt\view{
         
         public function __construct($tag = 'div', $data = null, $attributes = array()){
             parent::__construct($tag, $data, $attributes);
