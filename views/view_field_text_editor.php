@@ -15,7 +15,7 @@ namespace adapt\forms\text_editor{
             
             /* Create the control */
             $value = $this->user_value ? $this->user_value : $form_data['default_value'];
-            $control = new \bootstrap\views\view_textarea($form_data['name'], $value, 3);
+            $control = new \bootstrap\views\view_textarea($form_data['field_name'], $value, 3);
             $control->add_class('tinymce');
             $control->set_id();
             
