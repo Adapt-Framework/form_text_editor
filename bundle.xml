@@ -3,7 +3,7 @@
   <bundle>
     <name>form_text_editor</name>
     <label>Adapt Form Text Editor</label>
-    <version>1.0.0</version>
+    <version>0.8.0</version>
     <type>extension</type>
     <namespace>\adapt\forms\text_editor</namespace>
     <description>Allows the use of TinyMCE in forms</description>
@@ -15,7 +15,7 @@
         </bundle>
         <bundle>
           <name>tinymce</name>
-          <version>4.2</version>
+          <version>1.0</version>
         </bundle>
         <bundle>
           <name>adapt</name>
