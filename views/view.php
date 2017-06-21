@@ -15,5 +15,3 @@ namespace adapt\forms\text_area{
     }
 
 }
-
-?>
